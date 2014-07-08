@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        21
-Release:        0.1
+Release:        0.2
 License:        MIT
 Group:          System Environment/Base
 URL:            http://fedoraproject.org
@@ -46,7 +46,7 @@ for keyfile in RPM-GPG-KEY*; do
     done
 done
 # and add symlink for compat generic location
-ln -s RPM-GPG-KEY-fedora-%{dist_version}-primary RPM-GPG-KEY-%{dist_version}-fedora
+ln -s RPM-GPG-KEY-fedora-%{version}-primary RPM-GPG-KEY-%{version}-fedora
 popd
 
 install -d -m 755 $RPM_BUILD_ROOT/etc/yum.repos.d
@@ -70,5 +70,8 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Tue Jul 08 2014 Dennis Gilmore <dennis@ausil.us> 21-0.2
+- use %%{version} not %%{dist_version} in symlink command
+
 * Tue Jul 08 2014 Dennis Gilmore <dennis@ausil.us> 21-0.1
 - Initial setup for fedora-repos
