@@ -1,11 +1,14 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
 Version:        21
-Release:        0.2
+Release:        0.3
 License:        MIT
 Group:          System Environment/Base
-URL:            http://fedoraproject.org
+URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
+# tarball is created by running make archive in the git checkout
 Source:         %{name}-%{version}.tar.bz2
+Provides:       fedora-repos(%{version})
+Requires:       system-release(%{version})
 BuildArch:      noarch
 
 %description
@@ -25,8 +28,6 @@ This package provides the rawhide repo definitions.
 %build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-
 # Install the keys
 install -d -m 755 $RPM_BUILD_ROOT/etc/pki/rpm-gpg
 install -m 644 RPM-GPG-KEY* $RPM_BUILD_ROOT/etc/pki/rpm-gpg/
@@ -54,8 +55,6 @@ for file in fedora*repo ; do
   install -m 644 $file $RPM_BUILD_ROOT/etc/yum.repos.d
 done
 
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
@@ -70,6 +69,13 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
+* Tue Jul 08 2014 Dennis Gilmore <dennis@ausil.us> 21-0.3
+- remove %%clean and rm in %%install
+- Provides:       fedora-repos(%%{version})
+- Requires:       system-release(%%{version})
+- change url to git repo
+- add note on how to make a tarball
+
 * Tue Jul 08 2014 Dennis Gilmore <dennis@ausil.us> 21-0.2
 - use %%{version} not %%{dist_version} in symlink command
 
