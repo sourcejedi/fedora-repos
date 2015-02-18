@@ -73,7 +73,7 @@ done
 
 %changelog
 * Wed Feb 18 2015 Dennis Gilmore <dennis@ausil.us> - 23-0.2
-- add teh Fedora 23 gpg keys
+- add the Fedora 23 gpg keys
 
 * Tue Feb 10 2015 Peter Robinson <pbrobinson@fedoraproject.org> 23-0.1
 - Setup for f23 rawhide
