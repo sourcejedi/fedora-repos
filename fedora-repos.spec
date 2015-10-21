@@ -4,7 +4,7 @@ Version:        24
 Release:        0.2
 License:        MIT
 Group:          System Environment/Base
-URL:            https://git.fedorahosted.org/cgit/fedora-repos.git/
+URL:            https://pagure.io/fedora-repos/
 # tarball is created by running make archive in the git checkout
 Source:         %{name}-%{version}.tar.bz2
 Provides:       fedora-repos(%{version})
