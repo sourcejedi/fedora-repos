@@ -1,7 +1,7 @@
 Summary:        Fedora package repositories
 Name:           fedora-repos
-Version:        24
-Release:        0.2
+Version:        25
+Release:        0.1
 License:        MIT
 Group:          System Environment/Base
 URL:            https://pagure.io/fedora-repos/
@@ -72,8 +72,5 @@ done
 %config(noreplace) /etc/yum.repos.d/fedora-rawhide.repo
 
 %changelog
-* Mon Oct 19 2015 Dennis Gilmore <dennis@ausil.us> - 24-0.2
-- add all keys f7 up to f24 rhbz#1246701
-
-* Tue Jul 14 2015 Dennis Gilmore <dennis@ausil.us> - 24-0.1
-- Setup for rawhide being f24
+* Tue Feb 23 2016 Dennis Gilmore <dennis@ausil.us> - 25-0.1
+- Setup for rawhide being f25
